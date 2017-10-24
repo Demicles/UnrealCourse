@@ -35,7 +35,16 @@ private:
 	// Ray-cast and grab what's in reach
 	void Grab();
 
-	UPROPERTY(EditAnywhere)
-		bool bDebugActive = false;
+	// Called when grab is released
+	void Release();
+
+	// Find attached physics
+	void FindPhysicsHandleComponent();
+
+	// Setup (assumed) attached input component
+	void SetupInputComponent();
+
+	// Return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
 	
 };
