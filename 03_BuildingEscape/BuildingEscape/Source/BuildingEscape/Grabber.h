@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "Components/InputComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -26,6 +28,12 @@ public:
 
 private:
 	float const Reach = 100.f; //How far ahead of the player can we reach in cm
+
+	UPhysicsHandleComponent* PhysicHandle = nullptr;
+	UInputComponent* InputComponentHandle = nullptr;
+
+	// Ray-cast and grab what's in reach
+	void Grab();
 
 	UPROPERTY(EditAnywhere)
 		bool bDebugActive = false;
